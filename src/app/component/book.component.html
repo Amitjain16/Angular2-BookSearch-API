@@ -1,0 +1,35 @@
+<div class="container-fluid outerdiv">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <h3 style="color:azure">Amit's Book Search Engine</h3>
+            </div>
+        </div>
+    </nav>
+    <div style="margin-top:60px">
+        <div class="animated zoomInRight">
+
+                 <div class="input-group">
+                    <input type="text" class = "form-control" name="search" [(ngModel)]="search" placeholder="Book Name"  (keyup)="searchBook(search)"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-secondary" type="button">Go!</button>
+                     </span>
+                </div>
+                <br/>
+                <div class="col-md-8">
+                    <div *ngIf="!posts">
+                        <p></p>
+                    </div>
+                    <div >
+                        <ul *ngFor = "let book of posts">
+                           <li><h3><a href='{{book.selfLink}}' target='_blank'>{{book.volumeInfo.title}}</a></h3></li>
+                           <p><strong>Published On:</strong> {{book.volumeInfo.publishedDate}}</p>
+                            <p><span>{{book.volumeInfo.description}}</span></p>
+                            
+                        </ul>
+                    </div>
+                </div>    
+
+        </div>
+    </div>    
+</div>
